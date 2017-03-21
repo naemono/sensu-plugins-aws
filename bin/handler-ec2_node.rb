@@ -175,6 +175,7 @@ class Ec2Node < Sensu::Handler
   end
 
   def instance_id
+    @event['client']['ec2']['instance_id'] if @event['client'].key?('ec2') && @event['client']['ec2'].key?('instance_id')
     @event['client']['name']
   end
 
